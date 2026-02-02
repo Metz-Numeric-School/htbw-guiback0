@@ -28,6 +28,7 @@
     {
         "path": "/admin/user",
         "controller": "App\\Controller\\Admin\\UserController",
+        "action": "index",
         "guard": "App\\Guard\\AdminGuard"
     },
     {
