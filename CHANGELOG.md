@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.1] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Register redirection
+
+## [1.5.0] - 2026-02-02
+
+### Security
+
+- Add password hash
+
 ## [1.4.1] - 2026-02-02
 
 ### 🐛 Bug Fixes
