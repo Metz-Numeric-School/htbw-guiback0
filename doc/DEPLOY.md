@@ -36,6 +36,7 @@ password: bf0bf5ba
   `git --git-dir=/var/depot_git --work-tree=/www/wwwroot/habittracker checkout -f $VARNAME`
 
 - Une fois que le code source sera poussé avec tag (ex: 1.0.3), on pourra lancer la commande suivante afin de mettre en prod le nouveau code : 
+  `chmod +x deploy.sh`
   `./deploy.sh nom_du_tag`
 
 - Le VPS est prêt
@@ -55,6 +56,69 @@ password: bf0bf5ba
 
 - Comme c'est un projet PHP, on lance l'installation de composer
 
-- Enfin on crée un fichier .env afin de connecter le site à la bonne base de données que nous venons de crée.
+- Il faut aussi changer la config de nginx en changeant :
+  
+` # Forbidden files or directories`
+`    location ~ ^/(\.user.ini|\.htaccess|\.git|\.env|\.svn|\.project|LICENSE|README.md)`
+`    {`
+`        return 404;`
+`    }`
+
+par 
+
+`location / {`
+`    try_files $uri $uri/ /index.php$is_args$args;`
+`}`
+
+- On crée un fichier .env afin de connecter le site à la bonne base de données que nous venons de crée.
+
+- Enfin nn se connect à PHPMyAdmin depuis AaPanel et on passe la requette SQL suivante :
+
+DROP TABLE IF EXISTS habit_logs;
+DROP TABLE IF EXISTS habits;
+DROP TABLE IF EXISTS mns_user;
+
+-- Table utilisateurs
+CREATE TABLE IF NOT EXISTS mns_user (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  isadmin TINYINT(1) NOT NULL DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Ajout d'un utilisateur admin
+INSERT INTO mns_user (firstname, lastname, email, password, isadmin) VALUES
+('Admin', 'HT', 'admin@ht-buggy-wapp.fr', 'azertyuiop', 1);
+
+-- Ajout d'un utilisateur standard
+INSERT INTO mns_user (firstname, lastname, email, password, isadmin) VALUES
+('User', 'HT', 'user@ht-buggy-wapp.fr', 'azertyuiop', 0);
+
+-- Table des habitudes
+CREATE TABLE habits (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES mns_user(id) ON DELETE CASCADE
+);
+
+-- Table des logs quotidiens
+CREATE TABLE habit_logs (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    habit_id INT UNSIGNED NOT NULL,
+    log_date DATE NOT NULL,
+    status TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (habit_id) REFERENCES habits(id) ON DELETE CASCADE,
+    UNIQUE(habit_id, log_date)
+);
+
 
 - Une fois que tout cela est fait, le site devrait fonctionner correctement.
