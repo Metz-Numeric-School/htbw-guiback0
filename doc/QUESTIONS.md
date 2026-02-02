@@ -18,11 +18,13 @@ Répondez ici aux questions théoriques en détaillant un maxium vos réponses :
 
 2. Comment faire pour qu'un nom de domaine pointe vers une adresse IP spécifique ?
 
-- Pour qu'un nom de domaine (exemple : monsite.fr) pointe vers une adresse IP (exemple : 192.168.1.***), il faut configurer le DNS. Système qui traduit les noms de domaine en adresses IP, permettant ainsi aux navigateurs de localiser le serveur hébergeant le site.
+- Pour qu'un nom de domaine (exemple : monsite.fr) pointe vers une adresse IP (exemple : 192.168.1.***), il faut configurer le DNS. 
+- Le DNS est un système qui traduit les noms de domaine en adresses IP, permettant ainsi aux navigateurs de localiser le serveur hébergeant le site.
 
 
 3. Comment mettre en place un certificat SSL ?
 
 - Il faut d'abord choisir un fournisseur de certificat comme Let's Encrypt
-Ensuite, on génère une demande de certificat depuis le serveur et on valide la propriété du domaine.
-Une fois le certificat obtenu, on l'installe sur le serveur web pour activer HTTPS. Enfin, on configure une redirection HTTP vers HTTPS pour forcer la connexion sécurisée.
+- Ensuite, on génère une demande de certificat depuis le serveur et on valide la propriété du domaine.
+- Une fois le certificat obtenu, on l'installe sur le serveur web pour activer HTTPS. 
+- Enfin, on configure une redirection HTTP vers HTTPS pour forcer la connexion sécurisée.
