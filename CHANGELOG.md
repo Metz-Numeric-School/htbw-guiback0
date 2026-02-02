@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.1] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Habits redirection
+
+## [1.4.0] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Member dashboard
+
+## [1.2.4] - 2026-02-02
+
+### 📚 Documentation
+
+- DEPLOY.md last part
+
+## [1.2.3] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Routes
+
+## [1.2.1] - 2026-02-02
+
+### 📚 Documentation
+
+- DEPLOY.md second part
+
+## [1.2.0] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Register fix
+
+## [1.1.0] - 2026-02-02
+
+### Security
+
+- Guards fix
+
+## [1.0.4] - 2026-02-02
+
+### 📚 Documentation
+
+- DEPLOY.md first part
+
+## [1.0.3] - 2026-02-02
+
+### 📚 Documentation
+
+- QUESTIONS.md response added
+
+## [1.0.2] - 2026-02-02
+
+### 📚 Documentation
+
+- Panel.md credentials add
+
 ## [1.0.0] - 2026-02-02
 
 ### 🚀 Features
