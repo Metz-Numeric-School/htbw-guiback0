@@ -35,7 +35,7 @@ password: bf0bf5ba
   `VARNAME=${1:?"missing arg 1 for tag name or branch name"}`
   `git --git-dir=/var/depot_git --work-tree=/www/wwwroot/habittracker checkout -f $VARNAME`
 
-- Une fois que le code source sera poussé avec tag (ex: 1.0.3), on pourra lancer la commande suivante afin de mettre en prod le nouveau code : 
+- Une fois que le code source sera poussé avec un tag (ex: 1.0.0), on pourra lancer la commande suivante afin de mettre en prod le nouveau code : 
   `chmod +x deploy.sh`
   `./deploy.sh nom_du_tag`
 
@@ -49,10 +49,10 @@ password: bf0bf5ba
 - Après avoir téléchargé tous les packages, on ajoute un site.
 - On ajoute le nom de domaine dans le formulaire et crée un dossier "work-tree" (www/wwwroot/habittracker)
 - On enlève le fichier HTML de base
-- Et enfin on crée une base de données
+- On crée une base de données
 
 
-- Une fois tout cela crée on fait index Aapanel sur le bon "Site Directory" (/public)
+- Une fois tout cela créé, on guide AaPanel sur le bon "Site Directory" (/public)
 
 - Comme c'est un projet PHP, on lance l'installation de composer
 
@@ -72,7 +72,7 @@ par
 
 - On crée un fichier .env afin de connecter le site à la bonne base de données que nous venons de crée.
 
-- Enfin nn se connect à PHPMyAdmin depuis AaPanel et on passe la requette SQL suivante :
+- Enfin on se connecte à PHPMyAdmin depuis AaPanel et on passe la requête SQL suivante :
 
 DROP TABLE IF EXISTS habit_logs;
 DROP TABLE IF EXISTS habits;
