@@ -52,7 +52,7 @@ class HabitsController extends AbstractController
                     'description' => $habit['description'] ?? null
                 ]);
 
-                header('Location: /habit');
+                header('Location: /habits');
                 exit;
             }
         }
