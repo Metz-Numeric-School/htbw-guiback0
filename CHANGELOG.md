@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2026-02-02
+
+### Security
+
+- XSS Cross-Site Scripting fix
+
+## [1.6.1] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- HabitsController
+
+## [1.6.0] - 2026-02-02
+
+### Security
+
+- SQL injection fix
+
 ## [1.5.1] - 2026-02-02
 
 ### 🐛 Bug Fixes
