@@ -42,4 +42,19 @@ password: bf0bf5ba
 
 ## Méthode de déploiement
 
-Todo...
+- Comme mentionné dans la "Préparation du VPS", nous utiliserons Aapanel pour deployer.
+- Une fois la commande passée sur la VM, il faut se connecter sur le lien interne de Aapanel.
+- On télécharge les packages adéquats pour le serveur de notre site.
+- Après avoir téléchargé tous les packages, on ajoute un site.
+- On ajoute le nom de domaine dans le formulaire et crée un dossier "work-tree" (www/wwwroot/habittracker)
+- On enlève le fichier HTML de base
+- Et enfin on crée une base de données
+
+
+- Une fois tout cela crée on fait index Aapanel sur le bon "Site Directory" (/public)
+
+- Comme c'est un projet PHP, on lance l'installation de composer
+
+- Enfin on crée un fichier .env afin de connecter le site à la bonne base de données que nous venons de crée.
+
+- Une fois que tout cela est fait, le site devrait fonctionner correctement.
