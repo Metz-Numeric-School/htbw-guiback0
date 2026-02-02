@@ -8,7 +8,7 @@
 
             <?php if(isset($error)): ?>
                 <div class="alert alert-danger" role="alert">
-                    <?= $error ?>
+                    <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
                 </div>
             <?php endif; ?>
 

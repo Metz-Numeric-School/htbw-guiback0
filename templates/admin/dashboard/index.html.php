@@ -19,7 +19,7 @@
             <div class="card text-center shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Total habitudes créées</h5>
-                    <p class="card-text display-6"><?= $totalHabits ?></p>
+                    <p class="card-text display-6"><?= htmlspecialchars($totalHabits, ENT_QUOTES, 'UTF-8') ?></p>
                     <a href="/admin/habits" class="btn btn-outline-primary btn-sm">Gérer les habitudes</a>
                 </div>
             </div>
